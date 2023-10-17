@@ -1,0 +1,79 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-lenh-san-xuat-heading" data-cy="LenhSanXuatCreateUpdateHeading">Create or edit a Lenh San Xuat</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_maLenhSanXuat">Ma Lenh San Xuat</label>
+          <input
+            type="number"
+            class="form-control"
+            name="maLenhSanXuat"
+            id="field_maLenhSanXuat"
+            data-cy="maLenhSanXuat"
+            formControlName="maLenhSanXuat"
+          />
+          <div
+            *ngIf="
+              editForm.get('maLenhSanXuat')!.invalid && (editForm.get('maLenhSanXuat')!.dirty || editForm.get('maLenhSanXuat')!.touched)
+            "
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('maLenhSanXuat')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('maLenhSanXuat')?.errors?.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_entryTime">Entry Time</label>
+          <input type="text" class="form-control" name="entryTime" id="field_entryTime" data-cy="entryTime" formControlName="entryTime" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_comment">Comment</label>
+          <input type="text" class="form-control" name="comment" id="field_comment" data-cy="comment" formControlName="comment" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_sender">Sender</label>
+          <input type="text" class="form-control" name="sender" id="field_sender" data-cy="sender" formControlName="sender" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_approver">Approver</label>
+          <input type="text" class="form-control" name="approver" id="field_approver" data-cy="approver" formControlName="approver" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

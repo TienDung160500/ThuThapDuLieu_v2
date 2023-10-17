@@ -1,0 +1,375 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-chi-tiet-lenh-san-xuat-heading" data-cy="ChiTietLenhSanXuatCreateUpdateHeading">
+        Create or edit a Chi Tiet Lenh San Xuat
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_reelID">Reel ID</label>
+          <input type="number" class="form-control" name="reelID" id="field_reelID" data-cy="reelID" formControlName="reelID" />
+          <div *ngIf="editForm.get('reelID')!.invalid && (editForm.get('reelID')!.dirty || editForm.get('reelID')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('reelID')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('reelID')?.errors?.number"> This field should be a number. </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_partNumber">Part Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="partNumber"
+            id="field_partNumber"
+            data-cy="partNumber"
+            formControlName="partNumber"
+          />
+          <div *ngIf="editForm.get('partNumber')!.invalid && (editForm.get('partNumber')!.dirty || editForm.get('partNumber')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('partNumber')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_vendor">Vendor</label>
+          <input type="text" class="form-control" name="vendor" id="field_vendor" data-cy="vendor" formControlName="vendor" />
+          <div *ngIf="editForm.get('vendor')!.invalid && (editForm.get('vendor')!.dirty || editForm.get('vendor')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('vendor')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_lot">Lot</label>
+          <input type="text" class="form-control" name="lot" id="field_lot" data-cy="lot" formControlName="lot" />
+          <div *ngIf="editForm.get('lot')!.invalid && (editForm.get('lot')!.dirty || editForm.get('lot')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('lot')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_userData1">User Data 1</label>
+          <input type="text" class="form-control" name="userData1" id="field_userData1" data-cy="userData1" formControlName="userData1" />
+          <div *ngIf="editForm.get('userData1')!.invalid && (editForm.get('userData1')!.dirty || editForm.get('userData1')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('userData1')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_userData2">User Data 2</label>
+          <input type="text" class="form-control" name="userData2" id="field_userData2" data-cy="userData2" formControlName="userData2" />
+          <div *ngIf="editForm.get('userData2')!.invalid && (editForm.get('userData2')!.dirty || editForm.get('userData2')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('userData2')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_userData3">User Data 3</label>
+          <input type="text" class="form-control" name="userData3" id="field_userData3" data-cy="userData3" formControlName="userData3" />
+          <div *ngIf="editForm.get('userData3')!.invalid && (editForm.get('userData3')!.dirty || editForm.get('userData3')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('userData3')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_userData4">User Data 4</label>
+          <input type="number" class="form-control" name="userData4" id="field_userData4" data-cy="userData4" formControlName="userData4" />
+          <div *ngIf="editForm.get('userData4')!.invalid && (editForm.get('userData4')!.dirty || editForm.get('userData4')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('userData4')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('userData4')?.errors?.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_userData5">User Data 5</label>
+          <input type="number" class="form-control" name="userData5" id="field_userData5" data-cy="userData5" formControlName="userData5" />
+          <div *ngIf="editForm.get('userData5')!.invalid && (editForm.get('userData5')!.dirty || editForm.get('userData5')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('userData5')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('userData5')?.errors?.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_initialQuantity">Initial Quantity</label>
+          <input
+            type="number"
+            class="form-control"
+            name="initialQuantity"
+            id="field_initialQuantity"
+            data-cy="initialQuantity"
+            formControlName="initialQuantity"
+          />
+          <div
+            *ngIf="
+              editForm.get('initialQuantity')!.invalid &&
+              (editForm.get('initialQuantity')!.dirty || editForm.get('initialQuantity')!.touched)
+            "
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('initialQuantity')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('initialQuantity')?.errors?.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_msdLevel">Msd Level</label>
+          <input type="text" class="form-control" name="msdLevel" id="field_msdLevel" data-cy="msdLevel" formControlName="msdLevel" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_msdInitialFloorTime">Msd Initial Floor Time</label>
+          <input
+            type="text"
+            class="form-control"
+            name="msdInitialFloorTime"
+            id="field_msdInitialFloorTime"
+            data-cy="msdInitialFloorTime"
+            formControlName="msdInitialFloorTime"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_msdBagSealDate">Msd Bag Seal Date</label>
+          <input
+            type="text"
+            class="form-control"
+            name="msdBagSealDate"
+            id="field_msdBagSealDate"
+            data-cy="msdBagSealDate"
+            formControlName="msdBagSealDate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_marketUsage">Market Usage</label>
+          <input
+            type="text"
+            class="form-control"
+            name="marketUsage"
+            id="field_marketUsage"
+            data-cy="marketUsage"
+            formControlName="marketUsage"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_quantityOverride">Quantity Override</label>
+          <input
+            type="number"
+            class="form-control"
+            name="quantityOverride"
+            id="field_quantityOverride"
+            data-cy="quantityOverride"
+            formControlName="quantityOverride"
+          />
+          <div
+            *ngIf="
+              editForm.get('quantityOverride')!.invalid &&
+              (editForm.get('quantityOverride')!.dirty || editForm.get('quantityOverride')!.touched)
+            "
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('quantityOverride')?.errors?.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('quantityOverride')?.errors?.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_shelfTime">Shelf Time</label>
+          <input type="text" class="form-control" name="shelfTime" id="field_shelfTime" data-cy="shelfTime" formControlName="shelfTime" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_spMaterialName">Sp Material Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="spMaterialName"
+            id="field_spMaterialName"
+            data-cy="spMaterialName"
+            formControlName="spMaterialName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_warningLimit">Warning Limit</label>
+          <input
+            type="text"
+            class="form-control"
+            name="warningLimit"
+            id="field_warningLimit"
+            data-cy="warningLimit"
+            formControlName="warningLimit"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_maximumLimit">Maximum Limit</label>
+          <input
+            type="text"
+            class="form-control"
+            name="maximumLimit"
+            id="field_maximumLimit"
+            data-cy="maximumLimit"
+            formControlName="maximumLimit"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_comments">Comments</label>
+          <input type="text" class="form-control" name="comments" id="field_comments" data-cy="comments" formControlName="comments" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_warmupTime">Warmup Time</label>
+          <div class="d-flex">
+            <input
+              id="field_warmupTime"
+              data-cy="warmupTime"
+              type="datetime-local"
+              class="form-control"
+              name="warmupTime"
+              formControlName="warmupTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_storageUnit">Storage Unit</label>
+          <input
+            type="text"
+            class="form-control"
+            name="storageUnit"
+            id="field_storageUnit"
+            data-cy="storageUnit"
+            formControlName="storageUnit"
+          />
+          <div *ngIf="editForm.get('storageUnit')!.invalid && (editForm.get('storageUnit')!.dirty || editForm.get('storageUnit')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('storageUnit')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_subStorageUnit">Sub Storage Unit</label>
+          <input
+            type="text"
+            class="form-control"
+            name="subStorageUnit"
+            id="field_subStorageUnit"
+            data-cy="subStorageUnit"
+            formControlName="subStorageUnit"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_locationOverride">Location Override</label>
+          <input
+            type="text"
+            class="form-control"
+            name="locationOverride"
+            id="field_locationOverride"
+            data-cy="locationOverride"
+            formControlName="locationOverride"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_expirationDate">Expiration Date</label>
+          <input
+            type="text"
+            class="form-control"
+            name="expirationDate"
+            id="field_expirationDate"
+            data-cy="expirationDate"
+            formControlName="expirationDate"
+          />
+          <div
+            *ngIf="
+              editForm.get('expirationDate')!.invalid && (editForm.get('expirationDate')!.dirty || editForm.get('expirationDate')!.touched)
+            "
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('expirationDate')?.errors?.required"> This field is required. </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_manufacturingDate">Manufacturing Date</label>
+          <input
+            type="text"
+            class="form-control"
+            name="manufacturingDate"
+            id="field_manufacturingDate"
+            data-cy="manufacturingDate"
+            formControlName="manufacturingDate"
+          />
+          <div
+            *ngIf="
+              editForm.get('manufacturingDate')!.invalid &&
+              (editForm.get('manufacturingDate')!.dirty || editForm.get('manufacturingDate')!.touched)
+            "
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('manufacturingDate')?.errors?.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_partClass">Part Class</label>
+          <input type="text" class="form-control" name="partClass" id="field_partClass" data-cy="partClass" formControlName="partClass" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_sapCode">Sap Code</label>
+          <input type="number" class="form-control" name="sapCode" id="field_sapCode" data-cy="sapCode" formControlName="sapCode" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_lenhSanXuat">Lenh San Xuat</label>
+          <select class="form-control" id="field_lenhSanXuat" data-cy="lenhSanXuat" name="lenhSanXuat" formControlName="lenhSanXuat">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                lenhSanXuatOption.id === editForm.get('lenhSanXuat')!.value?.id ? editForm.get('lenhSanXuat')!.value : lenhSanXuatOption
+              "
+              *ngFor="let lenhSanXuatOption of lenhSanXuatsSharedCollection; trackBy: trackLenhSanXuatById"
+            >
+              {{ lenhSanXuatOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
